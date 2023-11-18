@@ -32,3 +32,18 @@ def viewstore():
     conn.close
     return rows
 
+def searchbook(title="",author="",year="",isbn=""):
+     conn = sqlite3.connect("bookstore.db")
+     cur=conn.cursor()   
+     cur.execute("SELECT * FROM books WHERE title = ? AND author = ?")
+     rows =cur.fetchall()
+     conn.close()
+     return rows
+
+def deletebook(id=-1,title="",author="",year="",isbn=""):
+    conn = sqlite3.connect("bookstore.db")
+    cur=conn.cursor()  
+    cur.execute("DELETE FROM books WHERE book_id = ?", (id,))
+    conn.commit()
+    conn.close()
+
