@@ -27,7 +27,7 @@ def insertbook(title, author, year, isbn):
 def viewstore():
     conn = sqlite3.connect("bookstore.db")
     cur = conn.cursor()
-    cur.execute("SELECT * FROM bookstore")
+    cur.execute("SELECT * FROM books")
     rows = cur.fetchall()
     conn.close
     return rows
@@ -35,7 +35,8 @@ def viewstore():
 def searchbook(title="",author="",year="",isbn=""):
      conn = sqlite3.connect("bookstore.db")
      cur=conn.cursor()   
-     cur.execute("SELECT * FROM books WHERE title = ? AND author = ?")
+    cur.execute(
+        "SELECT * FROM books WHERE title = ? AND author = ?", (title, author))
      rows =cur.fetchall()
      conn.close()
      return rows
