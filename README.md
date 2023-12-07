@@ -29,7 +29,7 @@ A simple Python project showcasing a basic bookstore application with SQLite int
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/your-username/bookstore.git
+    git clone https://github.com/Tejkh1/bookstore.git
     cd bookstore
     ```
 
